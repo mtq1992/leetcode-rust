@@ -1,7 +1,7 @@
 # leetcode-rust
 
 src目录结构
-* 每个算法题一个文件。包含算法实现和部分测试和bench。
+* 每个算法题一个文件。包含算法实现和部分测试和Benchmark。
 * lib.rs 文件 声明每个算法文件。
 
 
@@ -26,14 +26,15 @@ test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 ```
 ## Benchmark
-使用官方 benchmark 需要安装 nightly 版本rust
+使用官方 Benchmark 需要安装 nightly 版本rust。
 
 安装命令
+
 `rustup install nightly`
 
 在项目根目录下切换成nightly
-`rustup override set nightly`
 
+`rustup override set nightly`
 
 `cargo bench --lib two_sum`
 
