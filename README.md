@@ -30,18 +30,15 @@ test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 ### rust 自带 bench
 使用官方 Benchmark 需要安装 nightly 版本rust。
 
-安装命令
-
+安装命令  
 `rustup install nightly`
 
-在项目根目录下切换成nightly
-
+在项目根目录下切换成nightly  
 `rustup override set nightly`
 
 `cargo bench --lib two_sum`
 
 ```
-
 ➜  leetcode-rust git:(master) ✗ cargo bench --lib two_sum
    Compiling leetcode-rust v0.1.0 (/Users/matianqi/Project/Rust/leetcode-rust)
     Finished bench [optimized] target(s) in 0.66s
@@ -58,8 +55,7 @@ test result: ok. 0 passed; 0 failed; 2 ignored; 1 measured; 0 filtered out; fini
 
 ### Criterion
 
-需要在 Cargo.toml 添加如下内容
-
+需要在 Cargo.toml 添加如下内容  
 ```
 [[bench]]
 name = "two_sum"
@@ -69,8 +65,10 @@ harness = false
 name = "three_sum"
 harness = false
 
-```
-这里告诉编译器关闭 libtest benchmark  
+```  
+多个 `bench` 声明多个目标。  
+`harness = false` 这里告诉编译器关闭 libtest benchmark  
+
 
 ```
 ➜  leetcode-rust git:(master) ✗ cargo bench --bench three_sum 
@@ -93,7 +91,7 @@ bench_two_sum_hash      time:   [388.30 ns 398.36 ns 413.84 ns]
 Found 6 outliers among 100 measurements (6.00%)
   4 (4.00%) high mild
   2 (2.00%) high severe
-  
+
 ```
 
 # 参考
