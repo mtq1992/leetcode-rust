@@ -26,6 +26,8 @@ test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 ```
 ## Benchmark
+
+### rust 自带 bench
 使用官方 Benchmark 需要安装 nightly 版本rust。
 
 安装命令
@@ -54,6 +56,47 @@ test result: ok. 0 passed; 0 failed; 2 ignored; 1 measured; 0 filtered out; fini
 
 ```
 
+### Criterion
+
+需要在 Cargo.toml 添加如下内容
+
+```
+[[bench]]
+name = "two_sum"
+harness = false
+
+[[bench]]
+name = "three_sum"
+harness = false
+
+```
+这里告诉编译器关闭 libtest benchmark  
+
+```
+➜  leetcode-rust git:(master) ✗ cargo bench --bench three_sum 
+    Finished bench [optimized] target(s) in 0.06s
+     Running benches/three_sum.rs (target/release/deps/three_sum-e14d6d8ac6870b43)
+WARNING: HTML report generation will become a non-default optional feature in Criterion.rs 0.4.0.
+This feature is being moved to cargo-criterion (https://github.com/bheisler/cargo-criterion) and will be optional in a future version of Criterion.rs. To silence this warning, either switch to cargo-criterion or enable the 'html_reports' feature in your Cargo.toml.
+
+Gnuplot not found, using plotters backend
+bench_two_sum           time:   [190.17 ns 191.89 ns 193.70 ns]                          
+                        change: [+0.3406% +1.8265% +3.2828%] (p = 0.02 < 0.05)
+                        Change within noise threshold.
+Found 9 outliers among 100 measurements (9.00%)
+  4 (4.00%) high mild
+  5 (5.00%) high severe
+
+bench_two_sum_hash      time:   [388.30 ns 398.36 ns 413.84 ns]                               
+                        change: [-2.5244% -0.5570% +2.0467%] (p = 0.64 > 0.05)
+                        No change in performance detected.
+Found 6 outliers among 100 measurements (6.00%)
+  4 (4.00%) high mild
+  2 (2.00%) high severe
+  
+```
+
 # 参考
-[基准测试 benchmark](https://course.rs/test/benchmark.html)  
-[Aloxaf/LeetCode-Rust](https://github.com/Aloxaf/LeetCode-Rust)
+[基准测试 benchmark](https://course.rs/test/benchmark.html)   
+[Aloxaf/LeetCode-Rust](https://github.com/Aloxaf/LeetCode-Rust)   
+[Criterion.rs Documentation](https://bheisler.github.io/criterion.rs/book/user_guide/migrating_from_libtest.html)

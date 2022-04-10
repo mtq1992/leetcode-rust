@@ -11,6 +11,10 @@ edition = "2021"
 [dev-dependencies]
 criterion = "0.3"
 
-# [[bench]]
-# name = "bench_two_sum"
-# harness = false
+[[bench]]
+name = "two_sum"
+harness = false
+
+[[bench]]
+name = "three_sum"
+harness = false
