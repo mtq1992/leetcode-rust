@@ -69,6 +69,7 @@ harness = false
 多个 `bench` 声明多个目标。  
 `harness = false` 这里告诉编译器关闭 libtest benchmark  
 
+`target/criterion/report/index.html` 是生成的 benchmark 报告。
 
 ```
 ➜  leetcode-rust git:(master) ✗ cargo bench --bench three_sum 
