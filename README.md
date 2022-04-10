@@ -62,7 +62,7 @@ name = "two_sum"
 harness = false
 
 [[bench]]
-name = "three_sum"
+name = "fibonacci"
 harness = false
 
 ```  
