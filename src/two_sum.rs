@@ -13,8 +13,6 @@ impl Solution {
     }
 }
 
-
-
 #[cfg(test)]
 mod tests {
     use super::Solution;
@@ -30,3 +28,15 @@ mod tests {
     }
 }
 
+
+#[cfg(test)]
+mod bench {
+    extern crate test;
+    use self::test::Bencher;
+    use super::Solution;
+
+    #[bench]
+    fn bench_two_sum(b: &mut Bencher) {
+        b.iter(|| Solution::two_sum(vec![2, 7, 11, 15], 9));
+    }
+}
